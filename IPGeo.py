@@ -7,7 +7,6 @@ import pprint
 from ipwhois import IPWhois
 from urllib2 import urlopen
 
-
 ip = raw_input('Enter IP address:\n')
 
 try:
@@ -53,8 +52,6 @@ def ipdata():
 		output(url)
 		return url
 		
-
-
 def extremeiplookup():
 		
 		url = 'https://extreme-ip-lookup.com/json/' + ip
@@ -68,7 +65,6 @@ def extremeiplookup():
 		output(url)
 		return url		
 		
-
 def whois():
 
 		obj = IPWhois(ip)
@@ -107,7 +103,3 @@ def output(url1):
 
 if __name__ == "__main__":
     ipinfo()
-
-
-
-
