@@ -81,28 +81,29 @@ def output(url1):
 		response = urlopen(url1)
 		datafound = json.load(response)
 
-
-		city = datafound['city']
-		region = datafound['region']
-
-		if 'query' in datafound:
-			IP = datafound['query']
-		elif 'ip' in datafound: 
-			IP = datafound['ip']
-		if 'organisation' in datafound: 
-			organisation = datafound['organisation']
-		elif 'org' in datafound:
-			organisation = datafound['org']
-		if 'country_name' in datafound: 
-			country = datafound['country_name']
-		elif 'country' in datafound:
-			country = datafound['country']
-		if 'asn' in datafound:
-			asn = datafound['asn']
-			print '\nInformation Found: \nIP: {0} \nRegion: {1} \nCountry: {2} \nCity: {3} \nOrg: {4} \nASN: {5}'.format(IP,region,country,city,organisation,asn)
-		else:
-			print '\nInformation Found: \nIP: {0} \nRegion: {1} \nCountry: {2} \nCity: {3} \nOrg: {4}'.format(IP,region,country,city,organisation)
-
+		try:
+			city = datafound['city']
+			region = datafound['region']
+	
+			if 'query' in datafound:
+				IP = datafound['query']
+			elif 'ip' in datafound: 
+				IP = datafound['ip']
+			if 'organisation' in datafound: 
+				organisation = datafound['organisation']
+			elif 'org' in datafound:
+				organisation = datafound['org']
+			if 'country_name' in datafound: 
+				country = datafound['country_name']
+			elif 'country' in datafound:
+				country = datafound['country']
+			if 'asn' in datafound:
+				asn = datafound['asn']
+				print '\nInformation Found: \nIP: {0} \nRegion: {1} \nCountry: {2} \nCity: {3} \nOrg: {4} \nASN: {5}'.format(IP,region,country,city,organisation,asn)
+			else:
+				print '\nInformation Found: \nIP: {0} \nRegion: {1} \nCountry: {2} \nCity: {3} \nOrg: {4}'.format(IP,region,country,city,organisation)
+		except:
+			print "Key Error"
 
 if __name__ == "__main__":
     ipinfo()
